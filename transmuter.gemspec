@@ -15,4 +15,21 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  # Run-time dependencies
+  # s.add_dependency('activesupport', '~>3.1.0')
+  s.add_dependency 'thor', '~>0.14.6'
+  s.add_dependency 'pdfkit', '~>0.5.2'
+  s.add_dependency 'redcarpet', '~>1.17.2'
+  s.add_dependency 'albino', '~>1.3.3'
+  s.add_dependency 'nokogiri', '~>1.5.0'
+
+  # Development dependencies
+  s.add_development_dependency 'guard', '~>0.6.2'
+  s.add_development_dependency 'guard-bundler', '~>0.1.3'
+  s.add_development_dependency 'guard-rspec', '~>0.4.3'
+
+  # Development / Test dependencies
+  s.add_development_dependency 'rspec', '~>2.6.0'
+  s.add_development_dependency 'mocha', '~>0.10.0'
 end
