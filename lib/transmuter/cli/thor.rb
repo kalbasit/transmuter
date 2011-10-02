@@ -43,6 +43,10 @@ module Transmuter
     end
 
     def set_output_filename
+      if output.blank? && options[:output_format].blank?
+        raise ArgumentError, "Either output or output_format should be given,"
+      end
+
       @output_filename = output || output_file
     end
 

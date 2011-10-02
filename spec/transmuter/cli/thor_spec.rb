@@ -121,6 +121,16 @@ describe CLI do
 
       it { should respond_to(:set_output_filename) }
 
+      it "should raise an exception of both output_format and output are empty" do
+        cli = CLI.new @valid_initialize_options, output_format: ''
+        cli.set_input_filename
+        cli.set_input_fileformat
+        cli.set_output_fileformat
+
+        -> { cli.set_output_filename }.should raise_error ArgumentError,
+          "Either output or output_format should be given,"
+      end
+
       it "should set @output_filename" do
         subject.set_output_filename
         subject.instance_variable_get('@output_filename').should == 'README.pdf'
