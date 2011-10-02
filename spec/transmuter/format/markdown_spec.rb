@@ -5,10 +5,6 @@ module Format
 
     let(:markdown_h1) { '# Heading 1' }
     let(:html_h1) { '<h1>Heading 1</h1>' }
-    let(:markdown_h2) { '## Heading 2' }
-    let(:markdown_h3) { '### Heading 3' }
-    let(:markdown_h4) { '#### Heading 4' }
-    let(:markdown_h5) { '##### Heading 5' }
     let(:markdown_ruby) { %(```ruby\ndef say_hi\n  "Hello, world!"\nend\n```) }
     let(:html_ruby) { %(<pre lang=\"ruby\"><code>def say_hi\n  &quot;Hello, world!&quot;\nend\n</code></pre>\n) }
 

@@ -32,13 +32,13 @@ module Transmuter
           end
 
           def set_klasses!
-            @source_klass = "::Transmuter::Format::#{@input_fileformat.to_s.camelcase}".constantize
-            @destination_klass = "::Transmuter::Format::#{@output_fileformat.to_s.camelcase}".constantize
+            @source_klass ||= "::Transmuter::Format::#{@input_fileformat.to_s.camelcase}".constantize
+            @destination_klass ||= "::Transmuter::Format::#{@output_fileformat.to_s.camelcase}".constantize
           end
 
           def set_methods
-            @source_transform_method = "to_#{@output_fileformat.to_s.downcase}".to_sym
-            @destination_process_method = :process
+            @source_transform_method ||= "to_#{@output_fileformat.to_s.downcase}".to_sym
+            @destination_process_method ||= :process
           end
 
           def verify_klasses!
