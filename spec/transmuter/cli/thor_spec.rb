@@ -44,6 +44,14 @@ describe CLI do
         -> { CLI.new @valid_initialize_options }.should_not
           raise_error Thor::RequiredArgumentMissingError
       end
+
+      it { should respond_to(:set_input_fileformat) }
+
+      it "should set @input_fileformat with --input_format" do
+        cli = CLI.new @valid_initialize_options, input_format: 'format1'
+        cli.set_input_fileformat
+        cli.instance_variable_get('@input_fileformat').should == "format1"
+      end
     end
 
   end

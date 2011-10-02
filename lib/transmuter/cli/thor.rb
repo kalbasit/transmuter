@@ -20,5 +20,9 @@ module Transmuter
     def set_input_filename
       @input_filename = input
     end
+
+    def set_input_fileformat
+      @input_fileformat = options[:input_format]
+    end
   end
 end
