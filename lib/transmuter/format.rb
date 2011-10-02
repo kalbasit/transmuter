@@ -1,3 +1,9 @@
-require 'transmuter/format/markdown'
-require 'transmuter/format/html'
-require 'transmuter/format/pdf'
+module Transmuter
+  module Format
+    extend ::ActiveSupport::Autoload
+
+    autoload :Markdown
+    autoload :Html
+    autoload :Pdf
+  end
+end
