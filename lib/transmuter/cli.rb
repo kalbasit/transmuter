@@ -1,4 +1,4 @@
-require 'transmuter/cli/options'
+require 'transmuter/cli/thor'
 require 'transmuter/cli/execute'
 require 'transmuter/cli/help'
 
