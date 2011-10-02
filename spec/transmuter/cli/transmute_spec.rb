@@ -58,7 +58,7 @@ describe CLI do
         end
 
         it "should invoke #transmute!" do
-          CLI::Runner.any_instance.expects(:transmute!).once
+          CLI::Runner.any_instance.expects(:transmute!).at_least(1)
 
           CLI::Runner.start @valid_start_args
         end
