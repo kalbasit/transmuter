@@ -11,6 +11,13 @@ module Transmuter
       aliases: "-f",
       desc: "The input format."
 
+    class_option :output_format,
+      type: :string,
+      required: false,
+      aliases: "-t",
+      default: "pdf",
+      desc: "The output format."
+
     argument :input,
       type: :string,
       required: true,

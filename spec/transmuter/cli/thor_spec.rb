@@ -76,7 +76,18 @@ describe CLI do
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "html"
       end
+    end
 
+    describe "output format" do
+
+      it "should have a class_option output_format defined" do
+        CLI.class_options.should have_key(:output_format)
+      end
+
+      it "should not be required" do
+        -> { CLI.new @valid_initialize_options }.should_not
+          raise_error Thor::RequiredArgumentMissingError
+      end
     end
 
   end
