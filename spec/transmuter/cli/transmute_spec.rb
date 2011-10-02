@@ -21,6 +21,10 @@ describe CLI do
           -> { cli.transmute! }.should raise_error NameError
         end
       end
+
+      it "should raise an error" do
+
+      end
     end
 
     describe "#transmute" do

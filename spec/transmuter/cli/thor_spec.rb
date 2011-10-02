@@ -138,9 +138,9 @@ describe CLI do
     end
 
     describe "#start" do
-      it "should call execute" do
-        CLI::Runner.any_instance.expects(:execute).once.returns(true)
-        CLI::Runner.any_instance.expects(:execute!).once.returns(true)
+      it "should call transmute" do
+        CLI::Runner.any_instance.expects(:transmute).twice.returns(true)
+        CLI::Runner.any_instance.expects(:transmute!).once.returns(true)
 
         CLI::Runner.start ["README.md"]
       end
