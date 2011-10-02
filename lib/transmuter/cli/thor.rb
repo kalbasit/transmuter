@@ -1,6 +1,7 @@
 require 'thor'
+require 'thor/group'
 
 module Transmuter
-  class CLI < Thor
+  class CLI < Thor::Group
   end
 end
