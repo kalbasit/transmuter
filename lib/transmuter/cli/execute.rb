@@ -1,5 +1,5 @@
 module Transmuter
-  class CLI
+  module CLI
     module Execute
       def self.included(base)
         base.send :include, InstanceMethods

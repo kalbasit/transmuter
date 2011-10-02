@@ -6,10 +6,10 @@ describe CLI do
       @valid_initialize_options = ['README.md']
     end
 
-    subject { CLI.new(@valid_initialize_options) }
+    subject { CLI::Runner.new(@valid_initialize_options) }
 
     describe "Thor group definition" do
-      subject { CLI }
+      subject { CLI::Runner }
       it { should respond_to(:desc) }
       it { should respond_to(:class_option) }
       it { should respond_to(:argument) }
@@ -19,11 +19,11 @@ describe CLI do
 
     describe "input" do
       it "should have an arguments :input defined" do
-        CLI.arguments.any? { |arg| arg.name == 'input' }.should be_true
+        CLI::Runner.arguments.any? { |arg| arg.name == 'input' }.should be_true
       end
 
       it "should be required" do
-        -> { CLI.new }.should raise_error Thor::RequiredArgumentMissingError,
+        -> { CLI::Runner.new }.should raise_error Thor::RequiredArgumentMissingError,
           "No value provided for required arguments 'input'"
       end
 
@@ -37,42 +37,42 @@ describe CLI do
 
     describe "input format" do
       it "should have a class_option input_format defined" do
-        CLI.class_options.should have_key(:input_format)
+        CLI::Runner.class_options.should have_key(:input_format)
       end
 
       it "should not be required" do
-        -> { CLI.new @valid_initialize_options }.should_not
+        -> { CLI::Runner.new @valid_initialize_options }.should_not
           raise_error Thor::RequiredArgumentMissingError
       end
 
       it { should respond_to(:set_input_fileformat) }
 
       it "should set @input_fileformat with --input_format" do
-        cli = CLI.new @valid_initialize_options, input_format: 'format1'
+        cli = CLI::Runner.new @valid_initialize_options, input_format: 'format1'
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "format1"
       end
 
       it "should be markdown if the input file extensions is .md" do
-        cli = CLI.new ['README.md']
+        cli = CLI::Runner.new ['README.md']
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "markdown"
       end
 
       it "should be markdown if the input file extensions is .markdown" do
-        cli = CLI.new ['README.markdown']
+        cli = CLI::Runner.new ['README.markdown']
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "markdown"
       end
 
       it "should be html if the input file extensions is .htm" do
-        cli = CLI.new ['README.htm']
+        cli = CLI::Runner.new ['README.htm']
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "html"
       end
 
       it "should be html if the input file extensions is .html" do
-        cli = CLI.new ['README.html']
+        cli = CLI::Runner.new ['README.html']
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "html"
       end
@@ -81,18 +81,18 @@ describe CLI do
     describe "output format" do
 
       it "should have a class_option output_format defined" do
-        CLI.class_options.should have_key(:output_format)
+        CLI::Runner.class_options.should have_key(:output_format)
       end
 
       it "should not be required" do
-        -> { CLI.new @valid_initialize_options }.should_not
+        -> { CLI::Runner.new @valid_initialize_options }.should_not
           raise_error Thor::RequiredArgumentMissingError
       end
 
       it { should respond_to(:set_output_fileformat) }
 
       it "should set @output_fileformat with --output_format" do
-        cli = CLI.new @valid_initialize_options, output_format: 'format1'
+        cli = CLI::Runner.new @valid_initialize_options, output_format: 'format1'
         cli.set_output_fileformat
         cli.instance_variable_get('@output_fileformat').should == "format1"
       end
@@ -111,18 +111,18 @@ describe CLI do
       end
 
       it "should have an arguments :input defined" do
-        CLI.arguments.any? { |arg| arg.name == 'output' }.should be_true
+        CLI::Runner.arguments.any? { |arg| arg.name == 'output' }.should be_true
       end
 
       it "should not be required" do
-        -> { CLI.new @valid_initialize_options }.should_not
+        -> { CLI::Runner.new @valid_initialize_options }.should_not
           raise_error Thor::RequiredArgumentMissingError
       end
 
       it { should respond_to(:set_output_filename) }
 
       it "should raise an exception of both output_format and output are empty" do
-        cli = CLI.new @valid_initialize_options, output_format: ''
+        cli = CLI::Runner.new @valid_initialize_options, output_format: ''
         cli.set_input_filename
         cli.set_input_fileformat
         cli.set_output_fileformat

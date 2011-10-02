@@ -5,4 +5,4 @@ ROOT_PATH = File.expand_path('../..', __FILE__)
 $:.push File.expand_path("#{ROOT_PATH}/lib")
 
 require 'transmuter'
-Transmuter::CLI.start.try(:execute!)
+Transmuter::CLI::Runner.start.try(:execute!)

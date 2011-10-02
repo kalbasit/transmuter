@@ -1,5 +1,5 @@
 module Transmuter
-  class CLI
+  module CLI
     module Help
       def self.included(base)
         base.extend ClassMethods

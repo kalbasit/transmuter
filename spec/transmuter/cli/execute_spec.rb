@@ -6,7 +6,7 @@ describe CLI do
       @valid_initialize_options = ['README.md']
     end
 
-    subject { CLI.new(@valid_initialize_options) }
+    subject { CLI::Runner }
 
     it { should respond_to(:execute) }
     it { should respond_to(:execute!) }
