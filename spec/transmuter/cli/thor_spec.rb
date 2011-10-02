@@ -88,6 +88,19 @@ describe CLI do
         -> { CLI.new @valid_initialize_options }.should_not
           raise_error Thor::RequiredArgumentMissingError
       end
+
+      it { should respond_to(:set_output_fileformat) }
+
+      it "should set @output_fileformat with --output_format" do
+        cli = CLI.new @valid_initialize_options, output_format: 'format1'
+        cli.set_output_fileformat
+        cli.instance_variable_get('@output_fileformat').should == "format1"
+      end
+
+      it "should default to pdf" do
+        subject.set_output_fileformat
+        subject.instance_variable_get('@output_fileformat').should == "pdf"
+      end
     end
 
   end

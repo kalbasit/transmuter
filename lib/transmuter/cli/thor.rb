@@ -32,6 +32,10 @@ module Transmuter
       @input_fileformat = options[:input_format] || input_format
     end
 
+    def set_output_fileformat
+      @output_fileformat = options[:output_format]
+    end
+
     protected
 
       def input_format
