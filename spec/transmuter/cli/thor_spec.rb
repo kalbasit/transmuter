@@ -52,6 +52,31 @@ describe CLI do
         cli.set_input_fileformat
         cli.instance_variable_get('@input_fileformat').should == "format1"
       end
+
+      it "should be markdown if the input file extensions is .md" do
+        cli = CLI.new ['README.md']
+        cli.set_input_fileformat
+        cli.instance_variable_get('@input_fileformat').should == "markdown"
+      end
+
+      it "should be markdown if the input file extensions is .markdown" do
+        cli = CLI.new ['README.markdown']
+        cli.set_input_fileformat
+        cli.instance_variable_get('@input_fileformat').should == "markdown"
+      end
+
+      it "should be html if the input file extensions is .htm" do
+        cli = CLI.new ['README.htm']
+        cli.set_input_fileformat
+        cli.instance_variable_get('@input_fileformat').should == "html"
+      end
+
+      it "should be html if the input file extensions is .html" do
+        cli = CLI.new ['README.html']
+        cli.set_input_fileformat
+        cli.instance_variable_get('@input_fileformat').should == "html"
+      end
+
     end
 
   end

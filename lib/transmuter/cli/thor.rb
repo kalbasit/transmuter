@@ -22,7 +22,21 @@ module Transmuter
     end
 
     def set_input_fileformat
-      @input_fileformat = options[:input_format]
+      @input_fileformat = options[:input_format] || input_format
     end
+
+    protected
+
+      def input_format
+        case @input.split('.').last
+        when /^(md|markdown)$/
+          "markdown"
+        when /^(html|htm)/
+          "html"
+        else
+          raise ArgumentError, "No format was given and format could not be parsed from the file name"
+        end
+      end
+
   end
 end
