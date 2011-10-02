@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# -*- encoding: utf-8 -*-
+
+ROOT_PATH = File.expand_path('../..', __FILE__)
+$:.push File.expand_path("#{ROOT_PATH}/lib")
+
+require 'transmuter'
+Transmuter::CLI.start.try(:execute!)
