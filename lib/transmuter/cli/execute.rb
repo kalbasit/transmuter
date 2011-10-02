@@ -2,10 +2,10 @@ module Transmuter
   module CLI
     module Execute
       def self.included(base)
-        base.send :include, InstanceMethods
+        base.extend ClassMethods
       end
 
-      module InstanceMethods
+      module ClassMethods
         def execute!
         end
 
