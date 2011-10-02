@@ -6,8 +6,5 @@ module Transmuter
   class CLI
     include Execute
     include Help
-
-    def self.start
-    end
   end
 end
