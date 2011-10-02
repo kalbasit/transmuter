@@ -9,6 +9,8 @@ describe CLI do
       it { should respond_to(:desc) }
       it { should respond_to(:class_option) }
       it { should respond_to(:argument) }
+      its (:desc) { should_not be_empty }
+    end
     end
   end
 end
