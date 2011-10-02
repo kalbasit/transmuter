@@ -136,9 +136,17 @@ module Format
         subject.send :syntax_highlighter, html_ruby
       end
 
-      it "should highlight the code" do
-        subject.send(:syntax_highlighter, html_ruby).should
-          match(%r(<div class="highlight".+<pre>.+k.+def.+<span class="nf>say_hi</span>.+s2.+Hello, world!.+k.+end.+</pre>")m)
+      it "should call Albino.colorize" do
+        pre = mock
+        pre.stubs(:text).returns("some html")
+        pre.stubs(:[]).with(:lang).returns(:ruby)
+        pre.stubs(:replace).returns(true)
+        nokogiri_document = mock()
+        nokogiri_document.stubs(:search).returns([pre])
+        Nokogiri.expects(:HTML).with(html_ruby).once.returns(nokogiri_document)
+
+        Albino.expects(:colorize).once.returns("")
+        subject.send(:syntax_highlighter, html_ruby)
       end
     end
 
