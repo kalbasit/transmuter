@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe CLI do
   describe "Thor" do
-    subject { CLI.new }
+    before(:all) do
+      @valid_initialize_options = ['README.md']
+    end
+
+    subject { CLI.new(@valid_initialize_options) }
 
     describe "Thor group definition" do
       subject { CLI }
