@@ -37,3 +37,13 @@ $ sudo easy_install pygments
 2.  Try using the wkhtmltopdf-binary gem (mac + linux i386)
 
         gem install wkhtmltopdf-binary
+
+# Usage
+
+## Simple command (PDF)
+
+```bash
+transmute README.md
+```
+
+You should get a generated README.pdf in the same directory.
