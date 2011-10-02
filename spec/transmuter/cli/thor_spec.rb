@@ -34,5 +34,17 @@ describe CLI do
         subject.instance_variable_get('@input_filename').should == 'README.md'
       end
     end
+
+    describe "input format" do
+      it "should have a class_option input_format defined" do
+        CLI.class_options.should have_key(:input_format)
+      end
+
+      it "should not be required" do
+        -> { CLI.new @valid_initialize_options }.should_not
+          raise_error Thor::RequiredArgumentMissingError
+      end
+    end
+
   end
 end
