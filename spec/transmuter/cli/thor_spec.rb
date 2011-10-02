@@ -26,6 +26,13 @@ describe CLI do
         -> { CLI.new }.should raise_error Thor::RequiredArgumentMissingError,
           "No value provided for required arguments 'input'"
       end
+
+      it { should respond_to(:set_input_filename) }
+
+      it "should set @input_filename" do
+        subject.set_input_filename
+        subject.instance_variable_get('@input_filename').should == 'README.md'
+      end
     end
   end
 end
