@@ -14,6 +14,10 @@ module Format
 
     subject { Markdown.new(markdown_h1, stylesheets: "/path/to/file.css") }
 
+    before(:each) do
+      File.stubs(:read).with('/path/to/file.css').returns('h1 { color: #000; }')
+    end
+
     describe "REDCARPET_OPTIONS" do
       it "shoudle have defined REDCARPET_OPTIONS" do
         Markdown.constants.should include(:REDCARPET_OPTIONS)
@@ -63,10 +67,6 @@ module Format
     end
 
     describe "#parse_markdown" do
-      before(:all) do
-        subject.stubs(:read_stylesheet_files).returns('h1 { color: #000; }')
-      end
-
       it "should have parse_markdown as a protected method" do
         Markdown.protected_instance_methods.should include(:parse_markdown)
       end
@@ -90,71 +90,7 @@ module Format
       end
     end
 
-    describe "#read_stylesheet_files" do
-      describe "as an Array" do
-        it "should have read_stylesheet_files as a protected method" do
-          Markdown.protected_instance_methods.should include(:read_stylesheet_files)
-        end
-
-        it "should reads the stylesheets from the specified files" do
-          File.expects(:read).with('/path/to/file.css').once
-          subject.send :read_stylesheet_files
-        end
-      end
-
-      describe "as a String" do
-        it "should have read_stylesheet_files as a protected method" do
-          Markdown.protected_instance_methods.should include(:read_stylesheet_files)
-        end
-
-        it "should reads the stylesheets from the specified files" do
-          File.expects(:read).with('/path/to/file.css').once
-          subject.send :read_stylesheet_files
-        end
-      end
-    end
-
-    describe "#include_inline_stylesheets" do
-      it "should render markdown with stylsheets" do
-        subject.stubs(:read_stylesheet_files).returns('h1 { color: #000; }')
-        html = "<html><body>#{html_h1}</body></html>"
-        subject.send(:include_inline_stylesheets, html).should
-          match(%r(<html>.*<head>.*<style [^>]*>h1 { color: #000; }.*</style>.*</head>.*<body>)m)
-      end
-    end
-
-    describe "#syntax_highlighter" do
-      it "should have syntax_highlighter as a protected method" do
-        Markdown.protected_instance_methods.should include(:syntax_highlighter)
-      end
-
-      it "should call Nokogiri::HTML" do
-        nokogiri_document = mock()
-        nokogiri_document.stubs(:search).returns([])
-        Nokogiri.expects(:HTML).with(html_ruby).once.returns(nokogiri_document)
-
-        subject.send :syntax_highlighter, html_ruby
-      end
-
-      it "should call Albino.colorize" do
-        pre = mock
-        pre.stubs(:text).returns("some html")
-        pre.stubs(:[]).with(:lang).returns(:ruby)
-        pre.stubs(:replace).returns(true)
-        nokogiri_document = mock()
-        nokogiri_document.stubs(:search).returns([pre])
-        Nokogiri.expects(:HTML).with(html_ruby).once.returns(nokogiri_document)
-
-        Albino.expects(:colorize).once.returns("")
-        subject.send(:syntax_highlighter, html_ruby)
-      end
-    end
-
     describe "#to_html" do
-      before(:each) do
-        subject.stubs(:read_stylesheet_files).returns('h1 { color: #000; }')
-      end
-
       describe "call stach" do
         it "should call parse_markdown" do
           Markdown.any_instance.expects(:parse_markdown).once.returns(html_h1)
@@ -162,14 +98,8 @@ module Format
           subject.to_html
         end
 
-        it "should call syntax_highlighter" do
-          Markdown.any_instance.expects(:syntax_highlighter).once.returns(html_h1)
-
-          subject.to_html
-        end
-
-        it "should call include_inline_stylesheets" do
-          Markdown.any_instance.expects(:include_inline_stylesheets).once.returns(html_h1)
+        it "should call process on the Html object" do
+          Html.any_instance.expects(:process).once.returns(html_h1)
 
           subject.to_html
         end
