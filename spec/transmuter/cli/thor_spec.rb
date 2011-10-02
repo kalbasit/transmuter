@@ -104,6 +104,12 @@ describe CLI do
     end
 
     describe "output" do
+      before(:each) do
+        subject.set_input_filename
+        subject.set_input_fileformat
+        subject.set_output_fileformat
+      end
+
       it "should have an arguments :input defined" do
         CLI.arguments.any? { |arg| arg.name == 'output' }.should be_true
       end
@@ -111,6 +117,13 @@ describe CLI do
       it "should not be required" do
         -> { CLI.new @valid_initialize_options }.should_not
           raise_error Thor::RequiredArgumentMissingError
+      end
+
+      it { should respond_to(:set_output_filename) }
+
+      it "should set @output_filename" do
+        subject.set_output_filename
+        subject.instance_variable_get('@output_filename').should == 'README.pdf'
       end
     end
 

@@ -42,6 +42,10 @@ module Transmuter
       @output_fileformat = options[:output_format]
     end
 
+    def set_output_filename
+      @output_filename = output || output_file
+    end
+
     protected
 
       def input_format
@@ -53,6 +57,11 @@ module Transmuter
         else
           raise ArgumentError, "No format was given and format could not be parsed from the file name"
         end
+      end
+
+      def output_file
+        output = @input_filename.dup
+        output.gsub(/^(.+)\.[^.]*$/, "\\1.#{@output_fileformat}")
       end
 
   end
