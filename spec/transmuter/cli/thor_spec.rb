@@ -103,5 +103,16 @@ describe CLI do
       end
     end
 
+    describe "output" do
+      it "should have an arguments :input defined" do
+        CLI.arguments.any? { |arg| arg.name == 'output' }.should be_true
+      end
+
+      it "should not be required" do
+        -> { CLI.new @valid_initialize_options }.should_not
+          raise_error Thor::RequiredArgumentMissingError
+      end
+    end
+
   end
 end

@@ -24,6 +24,12 @@ module Transmuter
       aliases: "-i",
       desc: "The input file name."
 
+    argument :output,
+      type: :string,
+      required: false,
+      aliases: "-o",
+      desc: "The output file name."
+
     def set_input_filename
       @input_filename = input
     end
