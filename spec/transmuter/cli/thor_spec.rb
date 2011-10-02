@@ -137,5 +137,14 @@ describe CLI do
       end
     end
 
+    describe "#start" do
+      it "should call execute" do
+        CLI::Runner.any_instance.expects(:execute).once.returns(true)
+        CLI::Runner.any_instance.expects(:execute!).once.returns(true)
+
+        CLI::Runner.start ["README.md"]
+      end
+    end
+
   end
 end

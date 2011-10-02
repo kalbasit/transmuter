@@ -1,15 +1,16 @@
 module Transmuter
   module CLI
-    module Execute
+    module Transmute
       def self.included(base)
         base.send :include, InstanceMethods
       end
 
       module InstanceMethods
-        def execute!
+        def transmute!
         end
 
-        def execute
+        def transmute
+          transmute!
         end
       end
     end

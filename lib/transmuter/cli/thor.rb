@@ -59,6 +59,10 @@ module Transmuter
               @output_filename = output || output_file
             end
 
+            def transmute_input_to_output
+              transmute
+            end
+
             protected
 
               def input_format
