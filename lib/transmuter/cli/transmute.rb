@@ -11,7 +11,7 @@ module Transmuter
           set_methods
           verify_klasses!
 
-          source_klass_instance = @source_klass.new(read_input_file)
+          source_klass_instance = @source_klass.new(read_input_file, parse_transmute_options)
           output = source_klass_instance.send(@source_transform_method)
 
           write_output_file(output)
@@ -55,6 +55,10 @@ module Transmuter
 
           def write_output_file(contents)
             File.open(@output_filename, 'w') { |f| f.write(contents) }
+          end
+
+          def parse_transmute_options
+            { stylesheets: @stylesheets }
           end
 
       end

@@ -27,6 +27,13 @@ module Transmuter
               default: "pdf",
               desc: "The output format."
 
+            class_option :stylesheets,
+              type: :array,
+              required: false,
+              aliases: "-s",
+              default: [DEFAULT_THEME],
+              desc: "The stylesheets."
+
             argument :input,
               type: :string,
               required: true,
@@ -57,6 +64,10 @@ module Transmuter
               end
 
               @output_filename = output || output_file
+            end
+
+            def set_stylesheets
+              @stylesheets = options[:stylesheets]
             end
 
             def transmute_input_to_output

@@ -137,6 +137,31 @@ describe CLI do
       end
     end
 
+    describe "stylesheets" do
+
+      it "should have a class_option stylesheets defined" do
+        CLI::Runner.class_options.should have_key(:stylesheets)
+      end
+
+      it "should not be required" do
+        -> { CLI::Runner.new @valid_initialize_options }.should_not
+          raise_error Thor::RequiredArgumentMissingError
+      end
+
+      it { should respond_to(:set_stylesheets) }
+
+      it "should set @stylesheets with --stylesheets" do
+        cli = CLI::Runner.new @valid_initialize_options, stylesheets: 'stylesheets/test.css'
+        cli.set_stylesheets
+        cli.instance_variable_get('@stylesheets').should == 'stylesheets/test.css'
+      end
+
+      it "should default to [#{ROOT_PATH}/stylesheets/default.css]" do
+        subject.set_stylesheets
+        subject.instance_variable_get('@stylesheets').should == ["#{ROOT_PATH}/stylesheets/default.css"]
+      end
+    end
+
     describe "#start" do
       it "should call transmute" do
         CLI::Runner.any_instance.expects(:transmute).returns(true).at_least(1)

@@ -29,6 +29,12 @@ describe CLI do
 
     subject { CLI::Runner.new(@valid_arguments, @valid_html_options) }
 
+    before(:each) do
+      File.stubs(:read).with('README.md').returns(markdown_h1)
+      File.stubs(:read).with(::Transmuter::CLI::Runner::DEFAULT_THEME).returns('h1 { color: #000; }')
+      File.any_instance.stubs(:write).returns(true)
+    end
+
     describe "Definitions" do
       it { should respond_to(:transmute) }
       it { should respond_to(:transmute!) }
@@ -61,11 +67,6 @@ describe CLI do
       end
 
       describe "Transmuting from markdown to HTML" do
-        before(:each) do
-          File.stubs(:read).with('README.md').returns(markdown_h1)
-          File.any_instance.stubs(:write).returns(true)
-        end
-
         it "should invoke #transmute!" do
           CLI::Runner.any_instance.expects(:transmute!).at_least(1)
 
@@ -88,8 +89,6 @@ describe CLI do
 
       describe "Transmuting from markdown to PDF" do
         before(:each) do
-          File.stubs(:read).with('README.md').returns(markdown_h1)
-          File.any_instance.stubs(:write).returns(true)
           pdfkit_instance = mock()
           pdfkit_instance.stubs(:to_pdf).returns true
           PDFKit.stubs(:new).returns(pdfkit_instance)
@@ -113,6 +112,15 @@ describe CLI do
           CLI::Runner.start @valid_pdf_start_args
         end
 
+      end
+
+      describe "stylesheets" do
+        it "should set a default stylesheets" # do
+         #          Format::Markdown.any_instance.expects(:parse_options).
+         #            with(stylesheets: "#{ROOT_PATH}/stylesheets/default.css")
+         #
+         #          CLI::Runner.start @valid_html_start_args
+         #        end
       end
     end
 
