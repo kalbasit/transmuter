@@ -40,10 +40,32 @@ $ sudo easy_install pygments
 
 # Usage
 
-## Simple command (PDF)
+You should check the help
 
 ```bash
-transmute README.md
+$ transmute --help
 ```
 
-You should get a generated README.pdf in the same directory.
+To Generate a PDF from a markdown file with the default CSS:
+
+```bash
+$ transmute file.md
+```
+
+To Generate an HTML from a markdown file with the default CSS:
+
+```bash
+$ transmute file.md -t html
+```
+
+To Generate an HTML from a markdown file with custom CSS:
+
+```bash
+$ transmute file.md -t html -s custom.css
+```
+
+Custom CSS files can be be multiple path separated by a space, for example:
+
+```bash
+$ transmute file.md -t html -s custom1.css custom2.css
+```
