@@ -1,0 +1,466 @@
+2011-10-03  Wael Nasreddine <wael.nasreddine@gmail.com>
+  * cli/thor: Add Textile.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb |    2 ++
+      1 files changed, 2 insertions(+), 0 deletions(-)
+
+  * bin/transmute: Make sure pygments and wkhtmltopdf exists.
+
+    Files changed:
+      bin/transmute     |   10 ++++++++++
+      lib/transmuter.rb |   16 ++++++++++++++++
+      2 files changed, 26 insertions(+), 0 deletions(-)
+
+  * README: Update the README.
+
+    Files changed:
+      README.md |   28 +++++++++++++++++++++++++---
+      1 files changed, 25 insertions(+), 3 deletions(-)
+
+  * cli: Remove the Help module, Thor provides it's own help method
+
+    Files changed:
+      lib/transmuter/cli.rb      |    2 --
+      lib/transmuter/cli/help.rb |   14 --------------
+      lib/transmuter/cli/thor.rb |    2 +-
+      3 files changed, 1 insertions(+), 17 deletions(-)
+
+  * transmuter: Add default stylesheets.
+
+    Files changed:
+      lib/transmuter/cli.rb                 |    2 +
+      lib/transmuter/cli/thor.rb            |   11 +++++
+      lib/transmuter/cli/transmute.rb       |    6 ++-
+      spec/transmuter/cli/thor_spec.rb      |   25 ++++++++++++
+      spec/transmuter/cli/transmute_spec.rb |   22 +++++++---
+      stylesheets/default.css               |   67 +++++++++++++++++++++++++++++++++
+      6 files changed, 125 insertions(+), 8 deletions(-)
+
+  * landing: Define ROOT_PATH so we can easily access the gem's root folder.
+
+    Files changed:
+      bin/transmute       |    3 +--
+      lib/transmuter.rb   |    2 ++
+      spec/spec_helper.rb |    2 +-
+      3 files changed, 4 insertions(+), 3 deletions(-)
+
+  * thor: I did not write handle_error so in the mean time use the transmute!
+    method.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb |    2 +-
+      1 files changed, 1 insertions(+), 1 deletions(-)
+
+  * transmute_spec: Add tests for HTML => PDF.
+
+    Files changed:
+      spec/transmuter/cli/transmute_spec.rb |   52 ++++++++++++++++++++++++++++----
+      1 files changed, 45 insertions(+), 7 deletions(-)
+
+  * format/html, format/markdown, format/pdf: Complete the pdf transmusion.
+
+    Files changed:
+      lib/transmuter/format/html.rb           |    6 ++++
+      lib/transmuter/format/markdown.rb       |    6 ++++
+      lib/transmuter/format/pdf.rb            |   19 +++++++++++++
+      spec/transmuter/format/html_spec.rb     |   27 +++++++++++++++++++
+      spec/transmuter/format/markdown_spec.rb |   28 ++++++++++++++++++++
+      spec/transmuter/format/pdf_spec.rb      |   43 +++++++++++++++++++++++++++++++
+      6 files changed, 129 insertions(+), 0 deletions(-)
+
+  * format/html, format/markdown: Define a method that can get me the options.
+
+    Files changed:
+      lib/transmuter/format/html.rb     |    6 ++++++
+      lib/transmuter/format/markdown.rb |   10 +++++++---
+      2 files changed, 13 insertions(+), 3 deletions(-)
+
+  * transmute: We do not need to call process in the destination class, it is
+    already been done in the source transmution method itself.
+
+    Files changed:
+      lib/transmuter/cli/transmute.rb |    5 +----
+      1 files changed, 1 insertions(+), 4 deletions(-)
+
+  * html: Fix the bug of multiple heads.
+
+    Files changed:
+      lib/transmuter/format/html.rb |   12 +++++++++---
+      1 files changed, 9 insertions(+), 3 deletions(-)
+
+  * gemspec: Add pry for debugging to the gemspec.
+
+    Files changed:
+      transmuter.gemspec |    3 +++
+      1 files changed, 3 insertions(+), 0 deletions(-)
+
+  * html_spec: Add a test showing the bug: If <head> section already exists,
+    another one is added, however the section should be modified.
+
+    Files changed:
+      spec/transmuter/format/html_spec.rb |   22 ++++++++++++++++++++--
+      1 files changed, 20 insertions(+), 2 deletions(-)
+
+  * cli/transmute: use at_least() instead of once and twice, I think
+    expectation is bleeding from one example to another.
+
+    Files changed:
+      spec/transmuter/cli/thor_spec.rb      |    4 ++--
+      spec/transmuter/cli/transmute_spec.rb |    2 +-
+      2 files changed, 3 insertions(+), 3 deletions(-)
+
+  * cli/transmute: add tests.
+
+    Files changed:
+      lib/transmuter/cli/transmute.rb         |    8 ++--
+      spec/transmuter/cli/thor_spec.rb        |    2 +-
+      spec/transmuter/cli/transmute_spec.rb   |   65 +++++++++++++++++++++++++++---
+      spec/transmuter/format/markdown_spec.rb |    4 --
+      4 files changed, 63 insertions(+), 16 deletions(-)
+
+  * transmuter: Implement the first *very basic* read of source file and write
+    of destination file.  TODO: cli/transmute.rb need tests!!
+
+    Files changed:
+      lib/transmuter/cli/transmute.rb       |   48 ++++++++++++++++++++++++++++++---
+      spec/transmuter/cli/thor_spec.rb      |    6 ++--
+      spec/transmuter/cli/transmute_spec.rb |    4 +++
+      spec/transmuter/format_spec.rb        |    4 +++
+      4 files changed, 55 insertions(+), 7 deletions(-)
+
+  * gitignore: Do not track HTML/PDF files.
+
+    Files changed:
+      .gitignore |    2 ++
+      1 files changed, 2 insertions(+), 0 deletions(-)
+
+  * format: autoload.
+
+    Files changed:
+      lib/transmuter/core_ext.rb |    1 +
+      lib/transmuter/format.rb   |   12 +++++++++---
+      2 files changed, 10 insertions(+), 3 deletions(-)
+
+  * travis: It seems that redcarpet does not work with JRuby, disable it on
+    travis-ci for now.
+
+    Files changed:
+      .travis.yml |    1 -
+      1 files changed, 0 insertions(+), 1 deletions(-)
+
+  * format/markdown, format/html: Move the HTML specific parsings into the HTML
+    format.
+
+    Files changed:
+      lib/transmuter/format/html.rb           |   57 ++++++++++++++++
+      lib/transmuter/format/markdown.rb       |   47 +------------
+      spec/transmuter/format/html_spec.rb     |  108 +++++++++++++++++++++++++++++++
+      spec/transmuter/format/markdown_spec.rb |   82 ++----------------------
+      4 files changed, 175 insertions(+), 119 deletions(-)
+
+  * markdown_spec: Remove external dependencies, mock as much as we can.
+
+    Files changed:
+      spec/transmuter/format/markdown_spec.rb |   14 +++++++++++---
+      1 files changed, 11 insertions(+), 3 deletions(-)
+
+
+2011-10-02  Wael Nasreddine <wael.nasreddine@gmail.com>
+  * travis: Jruby 1.9 please.
+
+    Files changed:
+      .travis.yml |    1 +
+      1 files changed, 1 insertions(+), 0 deletions(-)
+
+  * gemspec: Ruby >= 1.9.2 please.
+
+    Files changed:
+      transmuter.gemspec |    2 ++
+      1 files changed, 2 insertions(+), 0 deletions(-)
+
+  * README: add simple usage (which is not implemented yet).
+
+    Files changed:
+      README.md |   10 ++++++++++
+      1 files changed, 10 insertions(+), 0 deletions(-)
+
+  * README: Add Travis-ci and Pledgie.
+
+    Files changed:
+      README.md |    4 +++-
+      1 files changed, 3 insertions(+), 1 deletions(-)
+
+  * Add .travis-ci
+
+    Files changed:
+      .travis.yml |    8 ++++++++
+      1 files changed, 8 insertions(+), 0 deletions(-)
+
+  * markdown: complete the markdown functionality.
+
+    Files changed:
+      lib/transmuter/format/markdown.rb       |   46 +++++++++++-
+      spec/transmuter/format/markdown_spec.rb |  123 +++++++++++++++++++++++++++++--
+      2 files changed, 162 insertions(+), 7 deletions(-)
+
+  * formar/markdown: add a call to_html
+
+    Files changed:
+      lib/transmuter/format/markdown.rb       |   20 +++++++++++
+      spec/transmuter/format/markdown_spec.rb |   58 +++++++++++++++++++++++++++++++
+      2 files changed, 78 insertions(+), 0 deletions(-)
+
+  * format: initial modules.
+
+    Files changed:
+      lib/transmuter.rb                       |    1 +
+      lib/transmuter/format.rb                |    3 +++
+      lib/transmuter/format/html.rb           |    6 ++++++
+      lib/transmuter/format/markdown.rb       |   10 ++++++++++
+      lib/transmuter/format/pdf.rb            |    6 ++++++
+      spec/transmuter/format/html_spec.rb     |    6 ++++++
+      spec/transmuter/format/markdown_spec.rb |   19 +++++++++++++++++++
+      spec/transmuter/format/pdf_spec.rb      |    6 ++++++
+      8 files changed, 57 insertions(+), 0 deletions(-)
+
+  * cli/transmute: Implement transmute as a non-exception raising transmute!
+    method.
+
+    Files changed:
+      lib/transmuter/cli/transmute.rb       |    8 ++++++++
+      spec/transmuter/cli/transmute_spec.rb |   27 +++++++++++++++++++++++++--
+      2 files changed, 33 insertions(+), 2 deletions(-)
+
+  * cli: Rename Execute to Transmute, execute is a method that does exist
+    already in Thor and we're overwriting it.
+
+    Files changed:
+      bin/transmute                         |    2 +-
+      lib/transmuter/cli.rb                 |    6 +++---
+      lib/transmuter/cli/execute.rb         |   17 -----------------
+      lib/transmuter/cli/thor.rb            |    4 ++++
+      lib/transmuter/cli/transmute.rb       |   18 ++++++++++++++++++
+      spec/transmuter/cli/execute_spec.rb   |   14 --------------
+      spec/transmuter/cli/thor_spec.rb      |    9 +++++++++
+      spec/transmuter/cli/transmute_spec.rb |   14 ++++++++++++++
+      8 files changed, 49 insertions(+), 35 deletions(-)
+
+  * cli: Move everything one level down to a Runner class and make CLI a
+    module.
+
+    Files changed:
+      bin/transmute                       |    2 +-
+      lib/transmuter/cli.rb               |    9 ++-
+      lib/transmuter/cli/execute.rb       |    2 +-
+      lib/transmuter/cli/help.rb          |    2 +-
+      lib/transmuter/cli/thor.rb          |  118 +++++++++++++++++++----------------
+      spec/transmuter/cli/execute_spec.rb |    2 +-
+      spec/transmuter/cli/thor_spec.rb    |   34 +++++-----
+      spec/transmuter/cli_spec.rb         |    8 ---
+      8 files changed, 92 insertions(+), 85 deletions(-)
+
+  * bin: Add a binary file that starts transmute.
+
+    Files changed:
+      bin/transmute |    8 ++++++++
+      1 files changed, 8 insertions(+), 0 deletions(-)
+
+  * cli: add two functions execute and execute! as InstanceMethods.
+
+    Files changed:
+      lib/transmuter/cli/execute.rb       |    4 ++--
+      spec/transmuter/cli/execute_spec.rb |   14 ++++++++++++++
+      2 files changed, 16 insertions(+), 2 deletions(-)
+
+  * cli: output or output_format should be set.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    4 ++++
+      spec/transmuter/cli/thor_spec.rb |   10 ++++++++++
+      2 files changed, 14 insertions(+), 0 deletions(-)
+
+  * cli: parse output file name.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    9 +++++++++
+      spec/transmuter/cli/thor_spec.rb |   13 +++++++++++++
+      2 files changed, 22 insertions(+), 0 deletions(-)
+
+  * cli: Add an output argument.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    6 ++++++
+      spec/transmuter/cli/thor_spec.rb |   11 +++++++++++
+      2 files changed, 17 insertions(+), 0 deletions(-)
+
+  * cli: Add a function to set the output file format.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    4 ++++
+      spec/transmuter/cli/thor_spec.rb |   13 +++++++++++++
+      2 files changed, 17 insertions(+), 0 deletions(-)
+
+  * cli: Add an optional class_option called :output_format.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    7 +++++++
+      spec/transmuter/cli/thor_spec.rb |   11 +++++++++++
+      2 files changed, 18 insertions(+), 0 deletions(-)
+
+  * cli: The input format can actually be parsed from the input file name.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |   16 +++++++++++++++-
+      spec/transmuter/cli/thor_spec.rb |   25 +++++++++++++++++++++++++
+      2 files changed, 40 insertions(+), 1 deletions(-)
+
+  * cli: correctly set input_format.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    4 ++++
+      spec/transmuter/cli/thor_spec.rb |    8 ++++++++
+      2 files changed, 12 insertions(+), 0 deletions(-)
+
+  * cli: Add an optional class_option called :input_format.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    6 ++++++
+      spec/transmuter/cli/thor_spec.rb |   12 ++++++++++++
+      2 files changed, 18 insertions(+), 0 deletions(-)
+
+  * cli: Add a method to set the input file name.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    3 +++
+      spec/transmuter/cli/thor_spec.rb |    7 +++++++
+      2 files changed, 10 insertions(+), 0 deletions(-)
+
+  * cli_spec: The subject should pass validations.
+
+    Files changed:
+      spec/transmuter/cli/thor_spec.rb |    6 +++++-
+      1 files changed, 5 insertions(+), 1 deletions(-)
+
+  * cli: Add an input argument.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    7 +++++++
+      spec/transmuter/cli/thor_spec.rb |   11 +++++++++++
+      2 files changed, 18 insertions(+), 0 deletions(-)
+
+  * cli: Add a description to the Thor group.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    1 +
+      spec/transmuter/cli/thor_spec.rb |    2 ++
+      2 files changed, 3 insertions(+), 0 deletions(-)
+
+  * cli: Should be a Thor::Group.
+
+    Files changed:
+      lib/transmuter/cli/thor.rb       |    3 ++-
+      spec/transmuter/cli/thor_spec.rb |   14 ++++++++++++++
+      spec/transmuter/cli_spec.rb      |    6 ------
+      3 files changed, 16 insertions(+), 7 deletions(-)
+
+  * Add active_support gem and include active_support's core extensions.
+
+    Files changed:
+      lib/transmuter.rb          |    1 +
+      lib/transmuter/core_ext.rb |    3 +++
+      transmuter.gemspec         |    4 ++--
+      3 files changed, 6 insertions(+), 2 deletions(-)
+
+  * cli: rename options to thor.
+
+    Files changed:
+      lib/transmuter/cli.rb         |    2 +-
+      lib/transmuter/cli/options.rb |    6 ------
+      lib/transmuter/cli/thor.rb    |    6 ++++++
+      3 files changed, 7 insertions(+), 7 deletions(-)
+
+  * gemspec: Include a good commented section to include active_support, if I
+    did need it at some point.
+
+    Files changed:
+      transmuter.gemspec |    3 ++-
+      1 files changed, 2 insertions(+), 1 deletions(-)
+
+  * cli: The start method is actually defined in Thor and should not be
+    overwritten.
+
+    Files changed:
+      lib/transmuter/cli.rb |    3 ---
+      1 files changed, 0 insertions(+), 3 deletions(-)
+
+  * cli: Add some examples to assure some methods exists, methods are empty
+    still!.
+
+    Files changed:
+      lib/transmuter/cli.rb         |    9 ++++++++-
+      lib/transmuter/cli/execute.rb |   17 +++++++++++++++++
+      lib/transmuter/cli/help.rb    |   14 ++++++++++++++
+      lib/transmuter/cli/options.rb |    6 ++++++
+      spec/transmuter/cli_spec.rb   |   13 ++++++++++++-
+      5 files changed, 57 insertions(+), 2 deletions(-)
+
+  * transmuter/cli: initial import.
+
+    Files changed:
+      lib/transmuter.rb           |    3 ++-
+      lib/transmuter/cli.rb       |    6 ++++++
+      spec/transmuter/cli_spec.rb |    7 +++++++
+      3 files changed, 15 insertions(+), 1 deletions(-)
+
+  * Guardfile: Initial Import.
+
+    Files changed:
+      Guardfile |   13 +++++++++++++
+      1 files changed, 13 insertions(+), 0 deletions(-)
+
+  * spec_helper.rb: ROOT_PATH was not defined.
+
+    Files changed:
+      spec/spec_helper.rb |    3 ++-
+      1 files changed, 2 insertions(+), 1 deletions(-)
+
+  * Add requirements and the spec_helper.rb file.
+
+    Files changed:
+      Gemfile                   |   17 +++++++++++++++++
+      Rakefile                  |    7 +++++++
+      lib/transmuter.rb         |    6 +-----
+      lib/transmuter/version.rb |    7 +++----
+      spec/spec_helper.rb       |   24 ++++++++++++++++++++++++
+      transmuter.gemspec        |   19 ++++++++++++++++++-
+      6 files changed, 70 insertions(+), 10 deletions(-)
+
+  * Edit the description.
+
+    Files changed:
+      transmuter.gemspec |    4 ++--
+      1 files changed, 2 insertions(+), 2 deletions(-)
+
+  * Edit the gemspec file.
+
+    Files changed:
+      transmuter.gemspec |   10 ++--------
+      1 files changed, 2 insertions(+), 8 deletions(-)
+
+  * Initialize the project.
+
+    Files changed:
+      .gitignore                |    4 ++++
+      Gemfile                   |    4 ++++
+      Rakefile                  |    1 +
+      lib/transmuter.rb         |    5 +++++
+      lib/transmuter/version.rb |    8 ++++++++
+      transmuter.gemspec        |   24 ++++++++++++++++++++++++
+      6 files changed, 46 insertions(+), 0 deletions(-)
+
+  * Add a README.
+
+    Files changed:
+      README.md |   37 +++++++++++++++++++++++++++++++++++++
+      1 files changed, 37 insertions(+), 0 deletions(-)
