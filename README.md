@@ -4,7 +4,7 @@ Transmuter is a command line tool to convert Markdown files into HTML or PDF
 files, it can also be used to convert HTML files to PDF, it uses in the
 backgound
 [Redcarpet](https://github.com/tanoku/redcarpet),
-[RedCloth](http://redcloth.org)
+[RedCloth](http://redcloth.org),
 [Albino](https://github.com/github/albino) and
 [PDFkit](https://github.com/jdpace/PDFKit).
 
