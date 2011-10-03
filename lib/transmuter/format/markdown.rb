@@ -11,13 +11,17 @@ module Transmuter
       end
 
       def to_html
-        options = @options.dup
-        options.delete(:redcarpet_options)
-        html = Html.new(parse_markdown, options)
+        html = Html.new(parse_markdown, get_options)
         html.process
       end
 
       protected
+        def get_options
+          options = @options.dup
+          options.delete(:redcarpet_options)
+          options
+        end
+
         def parse_options(options)
           options = options.dup
           @options = options.merge!(:redcarpet_options => REDCARPET_OPTIONS)

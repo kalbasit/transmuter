@@ -15,6 +15,12 @@ module Transmuter
       end
 
       protected
+        def get_options
+          options = @options.dup
+          options.delete(:redcarpet_options)
+          options
+        end
+
         def parse_options(options)
           @options = options.dup
         end
