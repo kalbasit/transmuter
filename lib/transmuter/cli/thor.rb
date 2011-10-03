@@ -80,6 +80,8 @@ module Transmuter
                 case @input.split('.').last
                 when /^(md|markdown)$/
                   "markdown"
+                when /^textile/
+                  "textile"
                 when /^(html|htm)/
                   "html"
                 else
