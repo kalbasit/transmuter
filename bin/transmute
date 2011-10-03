@@ -4,4 +4,14 @@
 $:.push File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'transmuter'
+
+# Verify requirements
+unless which("pygmentize")
+  abort "Please install pygments, please read the README.md file for more information"
+end
+
+unless which("wkhtmltopdf")
+  abort "Please install wkhtmltopdf, please read the README.md file for more information"
+end
+
 Transmuter::CLI::Runner.start
