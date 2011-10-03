@@ -3,6 +3,7 @@ module Transmuter
     extend ::ActiveSupport::Autoload
 
     autoload :Markdown
+    autoload :Textile
     autoload :Html
     autoload :Pdf
   end

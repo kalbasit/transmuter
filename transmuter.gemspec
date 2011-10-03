@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'thor', '~>0.14.6'
   s.add_dependency 'pdfkit', '~>0.5.2'
   s.add_dependency 'redcarpet', '~>1.17.2'
+  s.add_dependency 'RedCloth', '~>4.2.8'
   s.add_dependency 'albino', '~>1.3.3'
   s.add_dependency 'nokogiri', '~>1.5.0'
 
