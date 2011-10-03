@@ -60,7 +60,7 @@ module Transmuter
             end
 
             def transmute_input_to_output
-              transmute
+              transmute!
             end
 
             protected
