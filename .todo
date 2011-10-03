@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <note priority="veryhigh" time="1317646083">
+        We need to document every module, every class and every function so we'd get a nide documentation from source code.
+    </note>
     <note priority="medium" time="1317642736">
         Add an optional Header/Footer option to specify header/footer files, they should be of any supported type.
     </note>

@@ -1,3 +1,6 @@
+- We need to document every module, every class and every function so we'd get a nide documentation from source code.
+  (added Mon Oct  3 14:48:03 2011, incomplete, priority veryhigh)
+
 - Add an optional Header/Footer option to specify header/footer files, they should be of any supported type.
   (added Mon Oct  3 13:52:16 2011, incomplete, priority medium)
 
