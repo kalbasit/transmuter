@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pdfkit'
 
 describe CLI do
   describe "Transmute" do
@@ -8,17 +9,25 @@ describe CLI do
 
     before(:all) do
       @valid_arguments = ['README.md']
-      @valid_options = { output_format: 'html' }
-      @valid_start_args = begin
+      @valid_html_options = { output_format: 'html' }
+      @valid_pdf_options = { output_format: 'pdf' }
+      @valid_html_start_args = begin
         @valid_arguments + begin
-          @valid_options.collect do |k, v|
+          @valid_html_options.collect do |k, v|
+            "--#{k.to_s.gsub(/_/, '-')}=#{v}"
+          end
+        end
+      end
+      @valid_pdf_start_args = begin
+        @valid_arguments + begin
+          @valid_pdf_options.collect do |k, v|
             "--#{k.to_s.gsub(/_/, '-')}=#{v}"
           end
         end
       end
     end
 
-    subject { CLI::Runner.new(@valid_arguments, @valid_options) }
+    subject { CLI::Runner.new(@valid_arguments, @valid_html_options) }
 
     describe "Definitions" do
       it { should respond_to(:transmute) }
@@ -60,19 +69,48 @@ describe CLI do
         it "should invoke #transmute!" do
           CLI::Runner.any_instance.expects(:transmute!).at_least(1)
 
-          CLI::Runner.start @valid_start_args
+          CLI::Runner.start @valid_html_start_args
         end
 
         it "should read the source file" do
           File.expects(:read).with('README.md').returns(markdown_h1).once
 
-          CLI::Runner.start @valid_start_args
+          CLI::Runner.start @valid_html_start_args
         end
 
         it "should write the source file" do
           File.any_instance.expects(:write).once
 
-          CLI::Runner.start @valid_start_args
+          CLI::Runner.start @valid_html_start_args
+        end
+
+      end
+
+      describe "Transmuting from markdown to PDF" do
+        before(:each) do
+          File.stubs(:read).with('README.md').returns(markdown_h1)
+          File.any_instance.stubs(:write).returns(true)
+          pdfkit_instance = mock()
+          pdfkit_instance.stubs(:to_pdf).returns true
+          PDFKit.stubs(:new).returns(pdfkit_instance)
+        end
+
+        it "should invoke #transmute!" do
+          CLI::Runner.any_instance.expects(:transmute!).at_least(1)
+
+          CLI::Runner.start @valid_pdf_start_args
+        end
+
+        it "should read the source file" do
+          File.expects(:read).with('README.md').returns(markdown_h1).once
+
+          CLI::Runner.start @valid_pdf_start_args
+        end
+
+        it "should write the source file" do
+          File.any_instance.expects(:write).once
+
+          CLI::Runner.start @valid_pdf_start_args
         end
 
       end
