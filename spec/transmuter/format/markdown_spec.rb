@@ -118,5 +118,33 @@ module Format
           match(%r(<html>.*<head>.*<style [^>]*>h1 { color: #000; }.*</style>.*</head>.*<body>.*#{html_h1}.*</body>.*</html>)m)
       end
     end
+
+    describe "#to_pdf" do
+      before(:each) do
+        pdfkit_instance = mock()
+        pdfkit_instance.stubs(:to_pdf).returns true
+        PDFKit = mock() unless defined?(PDFKit)
+        PDFKit.stubs(:new).returns(pdfkit_instance)
+      end
+
+      it { should respond_to :to_pdf }
+
+      describe "call stack" do
+
+        it "should call to_html" do
+          Html.any_instance.expects(:process).returns(html_h1).once
+
+          subject.to_pdf
+        end
+
+        it "should create a new Pdf object" do
+          pdf = mock
+          pdf.stubs(:process).returns(true)
+          Pdf.expects(:new).returns(pdf).once
+
+          subject.to_pdf
+        end
+      end
+    end
   end
 end

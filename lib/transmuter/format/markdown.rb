@@ -10,6 +10,12 @@ module Transmuter
         @markdown = markdown
       end
 
+      def to_pdf
+        html = to_html
+        pdf = Pdf.new(html, get_options)
+        pdf.process
+      end
+
       def to_html
         html = Html.new(parse_markdown, get_options)
         html.process

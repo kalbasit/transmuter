@@ -10,6 +10,12 @@ module Transmuter
         @html = html
       end
 
+      def to_pdf
+        html = process
+        pdf = Pdf.new(html, get_options)
+        pdf.process
+      end
+
       def process
         include_inline_stylesheets(syntax_highlighter)
       end
