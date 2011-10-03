@@ -12,7 +12,7 @@ module Transmuter
       module InstanceMethods
         def self.included(base)
           base.class_eval <<-END, __FILE__, __LINE__ + 1
-            desc "Transmute one file format into another"
+            desc "Transmute one file format into another."
 
             class_option :input_format,
               type: :string,
