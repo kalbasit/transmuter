@@ -58,9 +58,27 @@ module Format
 
     describe "#include_inline_stylesheets" do
       it "should render html with stylsheets" do
+        require 'nokogiri'
         html = "<html><body>#{html_h1}</body></html>"
-        subject.send(:include_inline_stylesheets, html).should
-          match(%r(<html>.*<head>.*<style [^>]*>h1 { color: #000; }.*</style>.*</head>.*<body>)m)
+        styled_html = subject.send(:include_inline_stylesheets, html)
+
+        doc = Nokogiri::HTML(styled_html)
+        doc.search('/html/head').size.should == 1
+
+        styled_html.should
+          match(%r(<html>[^<head>]*<head><style [^>]*>h1 { color: #000; }.*</style>.*</head>[^<head>]*<body>)m)
+      end
+
+      it "should render html with stylsheets even if there's already head" do
+        require 'nokogiri'
+        html = %(<html><head><link rel="stylesheet" href="styles.css" type="text/css" /></head><body>#{html_h1}</body></html>)
+        styled_html = subject.send(:include_inline_stylesheets, html)
+
+        doc = Nokogiri::HTML(styled_html)
+        doc.search('/html/head').size.should == 1
+
+        styled_html.should
+          match(%r(<html>[^<head>]*<head><style [^>]*>h1 { color: #000; }.*</style>.*</head>[^<head>]*<body>)m)
       end
     end
 
