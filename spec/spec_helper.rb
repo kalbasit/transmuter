@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-ROOT_PATH = File.expand_path('..', __FILE__)
+ROOT_PATH = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 $:.push File.expand_path("#{ROOT_PATH}/lib")
 
 require 'rubygems'
