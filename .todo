@@ -3,4 +3,13 @@
     <note priority="medium" time="1317642736">
         Add an optional Header/Footer option to specify header/footer files, they should be of any supported type.
     </note>
+    <note priority="medium" time="1317642895">
+        Add an option allowing the user to turn off syntax highlighting
+    </note>
+    <note priority="medium" time="1317642982">
+        Better handle options passed from Thor to Source class, instead of manually setting options[:stylesheets] I think we should just send the options hash
+    </note>
+    <note priority="medium" time="1317643052">
+        The Textile and Markdown classes looks a lot like each other, make some Meta-programming, inheritence may suffice
+    </note>
 </todo>
