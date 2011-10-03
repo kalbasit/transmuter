@@ -1,4 +1,31 @@
 2011-10-03  Wael Nasreddine <wael.nasreddine@gmail.com>
+  * textile: Initial import.
+
+    Files changed:
+      lib/transmuter/format.rb               |    1 +
+      lib/transmuter/format/textile.rb       |   40 ++++++++++
+      spec/transmuter/format/textile_spec.rb |  134 ++++++++++++++++++++++++++++++++
+      transmuter.gemspec                     |    1 +
+      4 files changed, 176 insertions(+), 0 deletions(-)
+
+  * spec_helper: ROOT_PATH is already defined in the library.
+
+    Files changed:
+      spec/spec_helper.rb |    3 +--
+      1 files changed, 1 insertions(+), 2 deletions(-)
+
+  * README: Fix a typo.
+
+    Files changed:
+      README.md |    2 +-
+      1 files changed, 1 insertions(+), 1 deletions(-)
+
+  * ChangeLog: Initial Commit.
+
+    Files changed:
+      ChangeLog |  466 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      1 files changed, 466 insertions(+), 0 deletions(-)
+
   * cli/thor: Add Textile.
 
     Files changed:
