@@ -37,14 +37,20 @@ module Transmuter
             stylesheet_contents = read_stylesheet_files
 
             doc = Nokogiri::HTML(html)
-            body = doc.xpath('/html/body').first
-            head = Nokogiri::XML::Node.new "head", doc
+            head = doc.xpath('/html/head').first
+
             style = Nokogiri::XML::Node.new "style", doc
             style['type'] = "text/css"
             style.content = stylesheet_contents
+
+            unless head.present?
+              head = Nokogiri::XML::Node.new "head", doc
+              body = doc.xpath('/html/body').first
+              body.add_previous_sibling head
+            end
+
             style.parent = head
 
-            body.add_previous_sibling head
             html = doc.to_s
           end
 
