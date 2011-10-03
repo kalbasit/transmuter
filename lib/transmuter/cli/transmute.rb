@@ -14,10 +14,7 @@ module Transmuter
           source_klass_instance = @source_klass.new(read_input_file)
           output = source_klass_instance.send(@source_transform_method)
 
-          destination_klass_instance = @destination_klass.new(output)
-          destination_content = destination_klass_instance.send(@destination_process_method)
-
-          write_output_file(destination_content)
+          write_output_file(output)
         end
 
         def transmute
