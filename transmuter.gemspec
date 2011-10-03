@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Wael Nasreddine"]
   s.email       = ["wael.nasreddine@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{The Alien device to convert Markdown to PDF with colorized code.}
+  s.summary     = %q{The Alien device to convert Markdown and Textile files to HTML or PDF.}
   s.description = s.summary
 
   s.files         = `git ls-files`.split("\n")
