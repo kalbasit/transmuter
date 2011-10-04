@@ -1,4 +1,4 @@
-# Transmuter [![Build Status](http://travis-ci.org/TechnoGate/transmuter.png)](http://travis-ci.org/TechnoGate/transmuter)
+# Transmuter [![Build Status](http://travis-ci.org/TechnoGate/transmuter.png)](http://travis-ci.org/TechnoGate/transmuter) ![Still Maintained](http://stillmaintained.com/TechnoGate/transmuter.png)
 
 Transmuter is a command line tool to convert Markdown files into HTML or PDF
 files, it can also be used to convert HTML files to PDF, it uses in the
