@@ -8,7 +8,7 @@ backgound
 [Albino](https://github.com/github/albino) and
 [PDFkit](https://github.com/jdpace/PDFKit).
 
-<a href='http://www.pledgie.com/campaigns/16086'><img alt='Click here to lend your support to: Transmuter and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/16086.png?skin_name=chrome' border='0' /></a>
+[![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
 
 # Installation
 
