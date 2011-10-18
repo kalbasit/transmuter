@@ -1,72 +1,65 @@
 # Transmuter [![Build Status](http://travis-ci.org/TechnoGate/transmuter.png)](http://travis-ci.org/TechnoGate/transmuter) ![Still Maintained](http://stillmaintained.com/TechnoGate/transmuter.png)
 
-Transmuter is a command line tool to convert Markdown files into HTML or PDF
-files, it can also be used to convert HTML files to PDF, it uses in the
-backgound
-[Redcarpet](https://github.com/tanoku/redcarpet),
-[RedCloth](http://redcloth.org),
-[Albino](https://github.com/github/albino) and
-[PDFkit](https://github.com/jdpace/PDFKit).
+Transmuter is a command line tool to convert Markdown files into HTML or PDF, or HTML files to PDF.
+
+It uses [Albino](https://github.com/github/albino),
+[PDFkit](https://github.com/jdpace/PDFKit),
+[Redcarpet](https://github.com/tanoku/redcarpet), and 
+[RedCloth](http://redcloth.org).
 
 [![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
 
-# Installation
+# Getting Started
 
-To install Transmuter use the command
+1. Install the Transmuter gem if you haven't already:
 
-```bash
-$ gem install transmuter
-```
+    ```bash
+    $ gem install transmuter
+    ```
 
-You also need to install (as a requirements),
-[*pygments*](http://pygments.org/) (needed by Albino) and
-[*WKHTMLTOPDF*](http://wkhtmltopdf.googlecode.com/) (needed by PDFkit)
+2. Transmuter uses [Albino](https://github.com/github/albino), which requires [Pygments](http://pygments.org/). You can install Pygments using the Python [Easy_Install](http://peak.telecommunity.com/DevCenter/EasyInstall) tool. After installing Easy_Install, you can install Pygments as a Python egg:
 
-## Pygments
+      ```bash
+      $ sudo easy_install pygments
+      ```
 
-You can install pygments using *easy_install* provided by Python
+    Pygments is also part of the Debian and Gentoo Linux distributions, and you can install it via the regular package managers. For example, in Ubuntu:
 
-```bash
-$ sudo easy_install pygments
-```
+      ```bash
+      $ sudo aptitude install python-pygments
+      ```
 
-## WKHTMLTOPDF
+    You can also install it from [source](https://bitbucket.org/birkenfeld/pygments-main). 
 
-1. Install by hand (recommended):
-
-    <https://github.com/jdpace/PDFKit/wiki/Installing-WKHTMLTOPDF>
-
-2.  Try using the wkhtmltopdf-binary gem (mac + linux i386)
-
-        gem install wkhtmltopdf-binary
+3. Transmuter also uses [PDFkit](https://github.com/jdpace/PDFKit), which requires [WKHTMLTOPDF](http://wkhtmltopdf.googlecode.com/). The PDFKit project on GitHub has excellent [installation instructions for WKHTMLTOPDF](https://github.com/jdpace/PDFKit/wiki/Installing-WKHTMLTOPDF).
 
 # Usage
 
-You should check the help
+You can check the help facility:
 
 ```bash
 $ transmute --help
 ```
 
-To Generate a PDF from a markdown file with the default CSS:
+Generate PDF from a Markdown file with the default CSS:
 
 ```bash
 $ transmute file.md
 ```
 
-To Generate an HTML from a markdown file with the default CSS:
+Generate HTML from a Markdown file with the default CSS:
 
 ```bash
 $ transmute file.md -t html
 ```
 
-To Generate an HTML from a markdown file with custom CSS:
+Generate HTML from a Markdown file with custom CSS:
 
 ```bash
 $ transmute file.md -t html -s custom.css
 ```
 
-Custom CSS files can be be multiple path separated by a space, for example:
+Generate HTML from a Markdown file with several custom CSS files specified by separating the file names with spaces:
 
 ```bash
 $ transmute file.md -t html -s custom1.css custom2.css
