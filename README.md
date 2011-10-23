@@ -69,7 +69,7 @@ $ transmute file.md -t html -s custom1.css custom2.css
 
 ## This code is free to use under the terms of the MIT license.
 
-Copyright (c) 2011 Wael Nasreddine <wael.nasreddine@gmail.com>
+Copyright (c) 2011 TechnoGate &lt;support@technogate.fr&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
