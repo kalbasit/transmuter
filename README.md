@@ -73,7 +73,7 @@ requests, you can contact us:
   message](https://github.com/inbox/new/eMxyzptlk)
 - Email: [contact@technogate.fr](mailto:contact@technogate.fr)
 
-Don't forget to follow [eMxyzptlk](https://github.com/eMxyzptlk) on
+Don't forget to follow me on [Github](https://github.com/eMxyzptlk) and
 [Twitter](https://twitter.com/eMxyzptlk) for news and updates.
 ```
 # License
