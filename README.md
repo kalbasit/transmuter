@@ -7,7 +7,7 @@ It uses [Albino](https://github.com/github/albino),
 [Redcarpet](https://github.com/tanoku/redcarpet), and 
 [RedCloth](http://redcloth.org).
 
-[![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
+[![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com!](http://pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
 
 # Getting Started
 
@@ -63,8 +63,19 @@ Generate HTML from a Markdown file with several custom CSS files specified by se
 
 ```bash
 $ transmute file.md -t html -s custom1.css custom2.css
-```
 
+# Contact
+
+For bugs and feature request, please use __Github issues__, for other
+requests, you can contact us:
+
+- [Github private
+  message](https://github.com/inbox/new/eMxyzptlk)
+- Email: [contact@technogate.fr](mailto:contact@technogate.fr)
+
+Don't forget to follow [eMxyzptlk](https://github.com/eMxyzptlk) on
+[Twitter](https://twitter.com/eMxyzptlk) for news and updates.
+```
 # License
 
 ## This code is free to use under the terms of the MIT license.
