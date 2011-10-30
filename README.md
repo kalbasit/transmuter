@@ -63,6 +63,7 @@ Generate HTML from a Markdown file with several custom CSS files specified by se
 
 ```bash
 $ transmute file.md -t html -s custom1.css custom2.css
+```
 
 # Contact
 
@@ -75,7 +76,7 @@ requests, you can contact us:
 
 Don't forget to follow me on [Github](https://github.com/eMxyzptlk) and
 [Twitter](https://twitter.com/eMxyzptlk) for news and updates.
-```
+
 # License
 
 ## This code is free to use under the terms of the MIT license.
