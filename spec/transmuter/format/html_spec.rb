@@ -95,7 +95,7 @@ module Format
         subject.send :syntax_highlighter
       end
 
-      it "should call Albino.colorize" do
+      it "should call Pygments.highlight" do
         pre = mock
         pre.stubs(:text).returns("some html")
         pre.stubs(:[]).with(:lang).returns(:ruby)
@@ -104,7 +104,7 @@ module Format
         nokogiri_document.stubs(:search).returns([pre])
         Nokogiri.expects(:HTML).with(html_h1).once.returns(nokogiri_document)
 
-        Albino.expects(:colorize).once.returns("")
+        Pygments.expects(:highlight).once.returns("")
         subject.send(:syntax_highlighter)
       end
     end
