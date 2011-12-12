@@ -2,7 +2,7 @@
 
 Transmuter is a command line tool to convert Markdown and Textile files into HTML or PDF, or HTML files to PDF.
 
-It uses [Albino](https://github.com/github/albino),
+It uses [pygments.rb](https://github.com/tmm1/pygments.rb),
 [PDFkit](https://github.com/jdpace/PDFKit),
 [Redcarpet](https://github.com/tanoku/redcarpet), and 
 [RedCloth](http://redcloth.org).
@@ -17,7 +17,7 @@ It uses [Albino](https://github.com/github/albino),
     $ gem install transmuter
     ```
 
-2. Transmuter uses [Albino](https://github.com/github/albino), which requires [Pygments](http://pygments.org/). You can install Pygments using the Python [Easy_Install](http://peak.telecommunity.com/DevCenter/EasyInstall) tool. After installing Easy_Install, you can install Pygments as a Python egg:
+2. Transmuter uses [pygments.rb](https://github.com/tmm1/pygments.rb), which requires [Pygments](http://pygments.org/). You can install Pygments using the Python [Easy_Install](http://peak.telecommunity.com/DevCenter/EasyInstall) tool. After installing Easy_Install, you can install Pygments as a Python egg:
 
       ```bash
       $ sudo easy_install pygments
