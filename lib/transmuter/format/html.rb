@@ -1,4 +1,4 @@
-require 'albino'
+require 'pygments.rb'
 require 'nokogiri'
 
 module Transmuter
@@ -72,7 +72,7 @@ module Transmuter
         def syntax_highlighter
           doc = Nokogiri::HTML(@html)
           doc.search("//pre[@lang]").each do |pre|
-            pre.replace Albino.colorize(pre.text.rstrip, pre[:lang].downcase.to_sym)
+            pre.replace Pygments.highlight(pre.text.rstrip, :lexer => pre[:lang].downcase.to_sym)
           end
           doc.to_s
         end
