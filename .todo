@@ -3,6 +3,9 @@
     <note priority="veryhigh" time="1317646083">
         We need to document every module, every class and every function so we'd get a nide documentation from source code.
     </note>
+    <note priority="veryhigh" time="1326249036">
+        Use TgConfig and TgCli
+    </note>
     <note priority="medium" time="1317642736">
         Add an optional Header/Footer option to specify header/footer files, they should be of any supported type.
     </note>
