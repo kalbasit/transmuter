@@ -1,13 +1,13 @@
-# Transmuter [![Build Status](http://travis-ci.org/TechnoGate/transmuter.png)](http://travis-ci.org/TechnoGate/transmuter) ![Still Maintained](http://stillmaintained.com/TechnoGate/transmuter.png)
+# Transmuter [![Build Status](http://travis-ci.org/TechnoGate/transmuter.png)](http://travis-ci.org/TechnoGate/transmuter) [![Still Maintained](http://stillmaintained.com/TechnoGate/transmuter.png)](http://stillmaintained.com/TechnoGate/transmuter)
 
-Transmuter is a command line tool to convert Markdown files into HTML or PDF, or HTML files to PDF.
+Transmuter is a command line tool to convert Markdown and Textile files into HTML or PDF, or HTML files to PDF.
 
-It uses [Albino](https://github.com/github/albino),
+It uses [pygments.rb](https://github.com/tmm1/pygments.rb),
 [PDFkit](https://github.com/jdpace/PDFKit),
 [Redcarpet](https://github.com/tanoku/redcarpet), and 
 [RedCloth](http://redcloth.org).
 
-[![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
+[![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com!](http://pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
 
 # Getting Started
 
@@ -17,7 +17,7 @@ It uses [Albino](https://github.com/github/albino),
     $ gem install transmuter
     ```
 
-2. Transmuter uses [Albino](https://github.com/github/albino), which requires [Pygments](http://pygments.org/). You can install Pygments using the Python [Easy_Install](http://peak.telecommunity.com/DevCenter/EasyInstall) tool. After installing Easy_Install, you can install Pygments as a Python egg:
+2. Transmuter uses [pygments.rb](https://github.com/tmm1/pygments.rb), which requires [Pygments](http://pygments.org/). You can install Pygments using the Python [Easy_Install](http://peak.telecommunity.com/DevCenter/EasyInstall) tool. After installing Easy_Install, you can install Pygments as a Python egg:
 
       ```bash
       $ sudo easy_install pygments
@@ -65,11 +65,23 @@ Generate HTML from a Markdown file with several custom CSS files specified by se
 $ transmute file.md -t html -s custom1.css custom2.css
 ```
 
+# Contact
+
+For bugs and feature request, please use __Github issues__, for other
+requests, you can contact us:
+
+- [Github private
+  message](https://github.com/inbox/new/eMxyzptlk)
+- Email: [contact@technogate.fr](mailto:contact@technogate.fr)
+
+Don't forget to follow me on [Github](https://github.com/eMxyzptlk) and
+[Twitter](https://twitter.com/eMxyzptlk) for news and updates.
+
 # License
 
 ## This code is free to use under the terms of the MIT license.
 
-Copyright (c) 2011 Wael Nasreddine <wael.nasreddine@gmail.com>
+Copyright (c) 2011 TechnoGate &lt;support@technogate.fr&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
