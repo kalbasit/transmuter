@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'pdfkit', '~>0.5.2'
   s.add_dependency 'redcarpet', '~>1.17.2'
   s.add_dependency 'RedCloth', '~>4.2.8'
-  s.add_dependency 'pygments.rb', '~>0.2.4'
+  s.add_dependency 'pygments.rb', '~>0.3.4'
   s.add_dependency 'nokogiri', '~>1.5.0'
 
   # Development dependencies
