@@ -1,4 +1,4 @@
-# Transmuter [![Build Status](http://travis-ci.org/TechnoGate/transmuter.png)](http://travis-ci.org/TechnoGate/transmuter) [![Still Maintained](http://stillmaintained.com/TechnoGate/transmuter.png)](http://stillmaintained.com/TechnoGate/transmuter)
+# Transmuter [![Build Status](http://travis-ci.org/eMxyzptlk/transmuter.png)](http://travis-ci.org/eMxyzptlk/transmuter) [![Still Maintained](http://stillmaintained.com/eMxyzptlk/transmuter.png)](http://stillmaintained.com/eMxyzptlk/transmuter)
 
 Transmuter is a command line tool to convert Markdown and Textile files into HTML or PDF, or HTML files to PDF.
 
@@ -81,7 +81,7 @@ Don't forget to follow me on [Github](https://github.com/eMxyzptlk) and
 
 ## This code is free to use under the terms of the MIT license.
 
-Copyright (c) 2011 TechnoGate &lt;support@technogate.fr&gt;
+Copyright (c) 2014 Wael Nasreddine &lt;wael.nasreddine@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
