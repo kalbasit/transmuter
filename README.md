@@ -68,11 +68,7 @@ $ transmute file.md -t html -s custom1.css custom2.css
 # Contact
 
 For bugs and feature request, please use __Github issues__, for other
-requests, you can contact us:
-
-- [Github private
-  message](https://github.com/inbox/new/eMxyzptlk)
-- Email: [contact@technogate.fr](mailto:contact@technogate.fr)
+requests, you can contact me by [email](mailto:wael.nasreddine@gmail.com).
 
 Don't forget to follow me on [Github](https://github.com/eMxyzptlk) and
 [Twitter](https://twitter.com/eMxyzptlk) for news and updates.
