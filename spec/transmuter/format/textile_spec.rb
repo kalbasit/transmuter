@@ -16,7 +16,7 @@ module Format
 
     describe "#new" do
       it "should require textile" do
-        -> { Textile.new }.should raise_error ArgumentError, "wrong number of arguments (0 for 1)"
+        -> { Textile.new }.should raise_error ArgumentError, "wrong number of arguments (0 for 1..2)"
       end
 
       it "should set @textile" do
