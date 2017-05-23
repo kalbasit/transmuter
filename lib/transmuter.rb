@@ -16,7 +16,8 @@ def which(cmd)
   return nil
 end
 
+require "active_support/dependencies/autoload"
+require "active_support/core_ext"
 require "transmuter/version"
-require "transmuter/core_ext"
 require "transmuter/format"
 require "transmuter/cli"
