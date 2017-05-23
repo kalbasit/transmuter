@@ -26,7 +26,7 @@ module Format
 
     describe "#new" do
       it "should require markdown" do
-        -> { Markdown.new }.should raise_error ArgumentError, "wrong number of arguments (0 for 1)"
+        -> { Markdown.new }.should raise_error ArgumentError
       end
 
       it "should set @markdown" do

@@ -16,27 +16,29 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.required_ruby_version = Gem::Requirement.new(">= 1.9.2")
+  s.required_ruby_version = Gem::Requirement.new(">= 2.2.5")
 
   # Run-time dependencies
-  s.add_dependency 'i18n', '~>0.6.0'
-  s.add_dependency 'activesupport', '~>3.1.0'
-  s.add_dependency 'thor', '~>0.14.6'
-  s.add_dependency 'pdfkit', '~>0.5.2'
-  s.add_dependency 'redcarpet', '~>1.17.2'
-  s.add_dependency 'RedCloth', '~>4.2.8'
-  s.add_dependency 'pygments.rb', '~>0.3.4'
-  s.add_dependency 'nokogiri', '~>1.5.0'
+  s.add_dependency 'i18n', '~>0.8.1'
+  s.add_dependency 'activesupport', '~>5.1.1'
+  s.add_dependency 'thor', '~>0.19.4'
+  s.add_dependency 'pdfkit', '~>0.8.2'
+  # TODO(kalbasit): redcarpet has changed interface between v1 and v3
+  s.add_dependency 'redcarpet', '~>1.0' # TODO '~>3.4.0'
+  s.add_dependency 'RedCloth', '~>4.3.2'
+  s.add_dependency 'pygments.rb', '~>1.1.2'
+  s.add_dependency 'nokogiri', '~>1.7.2'
 
   # Development dependencies
-  s.add_development_dependency 'guard', '~>0.8.4'
-  s.add_development_dependency 'guard-bundler', '~>0.1.3'
-  s.add_development_dependency 'guard-rspec', '~>0.4.5'
+  s.add_development_dependency 'guard', '~>2.14.1'
+  s.add_development_dependency 'guard-bundler', '~>2.1.0'
+  s.add_development_dependency 'guard-rspec', '~>4.7.3'
 
   # Development / Test dependencies
-  s.add_development_dependency 'rspec', '~>2.6.0'
-  s.add_development_dependency 'mocha', '~>0.10.0'
+  s.add_development_dependency 'rspec', '~>3.6.0'
+  s.add_development_dependency 'its', '~>0.2.0'
+  s.add_development_dependency 'mocha', '~>1.2.1'
 
   # Debugging
-  s.add_development_dependency 'pry', '~>0.9.6.2'
+  s.add_development_dependency 'pry', '~>0.10.4'
 end

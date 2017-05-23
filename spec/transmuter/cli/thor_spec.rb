@@ -19,7 +19,7 @@ describe CLI do
 
     describe "input" do
       it "should have an arguments :input defined" do
-        CLI::Runner.arguments.any? { |arg| arg.name == 'input' }.should be_true
+        CLI::Runner.arguments.any? { |arg| arg.name == 'input' }.should be_truthy
       end
 
       it "should be required" do
@@ -111,7 +111,7 @@ describe CLI do
       end
 
       it "should have an arguments :input defined" do
-        CLI::Runner.arguments.any? { |arg| arg.name == 'output' }.should be_true
+        CLI::Runner.arguments.any? { |arg| arg.name == 'output' }.should be_truthy
       end
 
       it "should not be required" do
@@ -164,7 +164,6 @@ describe CLI do
 
     describe "#start" do
       it "should call transmute" do
-        CLI::Runner.any_instance.expects(:transmute).returns(true).at_least(1)
         CLI::Runner.any_instance.expects(:transmute!).returns(true).at_least(1)
 
         CLI::Runner.start ["README.md"]
