@@ -19,7 +19,7 @@ describe CLI do
 
     describe "input" do
       it "should have an arguments :input defined" do
-        CLI::Runner.arguments.any? { |arg| arg.name == 'input' }.should be_true
+        CLI::Runner.arguments.any? { |arg| arg.name == 'input' }.should be_truthy
       end
 
       it "should be required" do
@@ -111,7 +111,7 @@ describe CLI do
       end
 
       it "should have an arguments :input defined" do
-        CLI::Runner.arguments.any? { |arg| arg.name == 'output' }.should be_true
+        CLI::Runner.arguments.any? { |arg| arg.name == 'output' }.should be_truthy
       end
 
       it "should not be required" do
