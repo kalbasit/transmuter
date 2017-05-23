@@ -16,6 +16,7 @@ def which(cmd)
   return nil
 end
 
+require "active_support/json"
 require "active_support/dependencies/autoload"
 require "active_support/core_ext"
 require "transmuter/version"
