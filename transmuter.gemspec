@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport', '~>5.1.1'
   s.add_dependency 'thor', '~>0.19.4'
   s.add_dependency 'pdfkit', '~>0.8.2'
-  s.add_dependency 'redcarpet', '~>3.4.0'
+  s.add_dependency 'redcarpet', '~>1.17.2' # TODO '~>3.4.0'
   s.add_dependency 'RedCloth', '~>4.3.2'
   s.add_dependency 'pygments.rb', '~>1.1.2'
   s.add_dependency 'nokogiri', '~>1.7.2'
