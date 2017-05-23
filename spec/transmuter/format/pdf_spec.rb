@@ -13,7 +13,7 @@ module Format
 
     describe "#new" do
       it "should require html" do
-        -> { Pdf.new }.should raise_error ArgumentError, "wrong number of arguments (0 for 1)"
+        -> { Pdf.new }.should raise_error ArgumentError
       end
 
       it "should set @html" do
