@@ -1,7 +1,9 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in transmuter.gemspec
 gemspec
+
+gem 'rake'
 
 platforms :ruby do
   # Require rbconfig to figure out the target OS

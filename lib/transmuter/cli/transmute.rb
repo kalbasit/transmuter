@@ -39,7 +39,6 @@ module Transmuter
           end
 
           def verify_klasses!
-
             raise NotImplementedError,
               "#{@source_klass} does not respond to #{@source_transform_method}" unless
               @source_klass.public_instance_methods.include?(@source_transform_method)
