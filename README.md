@@ -1,11 +1,11 @@
-[![Stories in Ready](https://badge.waffle.io/emxyzptlk/transmuter.png?label=ready&title=Ready)](https://waffle.io/emxyzptlk/transmuter)
-# Transmuter [![Build Status](http://travis-ci.org/eMxyzptlk/transmuter.png)](http://travis-ci.org/eMxyzptlk/transmuter) [![Still Maintained](http://stillmaintained.com/eMxyzptlk/transmuter.png)](http://stillmaintained.com/eMxyzptlk/transmuter)
+[![Stories in Ready](https://badge.waffle.io/kalbasit/transmuter.png?label=ready&title=Ready)](https://waffle.io/kalbasit/transmuter)
+# Transmuter [![Build Status](http://travis-ci.org/kalbasit/transmuter.png)](http://travis-ci.org/kalbasit/transmuter) [![Still Maintained](http://stillmaintained.com/kalbasit/transmuter.png)](http://stillmaintained.com/kalbasit/transmuter)
 
 Transmuter is a command line tool to convert Markdown and Textile files into HTML or PDF, or HTML files to PDF.
 
 It uses [pygments.rb](https://github.com/tmm1/pygments.rb),
 [PDFkit](https://github.com/jdpace/PDFKit),
-[Redcarpet](https://github.com/tanoku/redcarpet), and 
+[Redcarpet](https://github.com/tanoku/redcarpet), and
 [RedCloth](http://redcloth.org).
 
 [![Click here to lend your support to: Open Source Projects and make a donation at www.pledgie.com!](http://pledgie.com/campaigns/16123.png?skin_name=chrome)](http://www.pledgie.com/campaigns/16123)
@@ -30,7 +30,7 @@ It uses [pygments.rb](https://github.com/tmm1/pygments.rb),
       $ sudo aptitude install python-pygments
       ```
 
-    You can also install it from [source](https://bitbucket.org/birkenfeld/pygments-main). 
+    You can also install it from [source](https://bitbucket.org/birkenfeld/pygments-main).
 
 3. Transmuter also uses [PDFkit](https://github.com/jdpace/PDFKit), which requires [WKHTMLTOPDF](http://wkhtmltopdf.googlecode.com/). The PDFKit project on GitHub has excellent [installation instructions for WKHTMLTOPDF](https://github.com/jdpace/PDFKit/wiki/Installing-WKHTMLTOPDF).
 
@@ -71,8 +71,8 @@ $ transmute file.md -t html -s custom1.css custom2.css
 For bugs and feature request, please use __Github issues__, for other
 requests, you can contact me by [email](mailto:wael.nasreddine@gmail.com).
 
-Don't forget to follow me on [Github](https://github.com/eMxyzptlk) and
-[Twitter](https://twitter.com/eMxyzptlk) for news and updates.
+Don't forget to follow me on [Github](https://github.com/kalbasit) and
+[Twitter](https://twitter.com/kalbasit) for news and updates.
 
 # License
 
