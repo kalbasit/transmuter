@@ -1,3 +1,9 @@
+# This repository is no longer maintained.
+
+I'm looking for someone with the right time and motivation to maintain
+Transmuter. If you are interested, please reach out at `me [at]
+kalbas.it`
+
 # Transmuter [![Build Status](http://travis-ci.org/kalbasit/transmuter.png)](http://travis-ci.org/kalbasit/transmuter) [![Stories in Ready](https://badge.waffle.io/kalbasit/transmuter.png?label=ready&title=Ready)](https://waffle.io/kalbasit/transmuter)
 
 Transmuter is a command line tool to convert Markdown and Textile files into HTML or PDF, or HTML files to PDF.
